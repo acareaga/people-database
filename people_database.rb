@@ -1,8 +1,3 @@
-# PersonDatabase should be initialized with an array of Person objects
-
-# people = [...]
-# people_db = PeopleDatabase.new(people)
-
 require './person'
 require 'pry'
 
@@ -18,8 +13,8 @@ class PeopleDatabase
     people << Person.new(attributes)
   end
 
-  def remove(email_address)
-
+  def remove(email)
+    people.delete_if {|record| record.email == email}
   end
 
   def people_from_state(state)
@@ -36,13 +31,16 @@ class PeopleDatabase
 end
 
 people_db = PeopleDatabase.new
+
 people_db.add(first_name: "Tess", last_name: "Griffin", email: "tess@turing.io", state: "CO")
 people_db.add(first_name: "Bob", last_name: "Goa", email: "bob@turing.io", state: "WI")
 people_db.add(first_name: "Sally", last_name: "Wally", email: "sally@turing.io", state: "CO")
 people_db.add(first_name: "Chris", last_name: "Grif", email: "chris@turing.io", state: "FL")
+
 people_db.people_from_state("CO")
 puts people_db.number_from_state("FL")
 people_db.email_addresses
+people_db.remove("bob@turing.io")
 
 
 # Remove a person from the collection given an email address

@@ -1,5 +1,3 @@
-# Person should have the attributes of a first name, last name, email, and state.
-
 class Person
 
   attr_accessor :first_name, :last_name, :email, :state
