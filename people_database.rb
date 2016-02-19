@@ -18,7 +18,7 @@ class PeopleDatabase
   end
 
   def people_from_state(state)
-    people.each {|record| puts "#{record.first_name} " "#{record.last_name}" if record.state == state}
+    people.each {|record| puts "#{record.first_name} #{record.last_name}" if record.state == state}
   end
 
   def email_addresses
@@ -41,6 +41,7 @@ people_db.people_from_state("CO")
 puts people_db.number_from_state("FL")
 people_db.email_addresses
 people_db.remove("bob@turing.io")
+
 
 
 # Remove a person from the collection given an email address
